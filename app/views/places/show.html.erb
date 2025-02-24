@@ -1,0 +1,19 @@
+<% place = Place.find_by(id: params["id"]) %>
+<% entries = Entry.where(place_id: place["id"]) %>
+
+<h1><%= place["name"] %></h1>
+
+<h2>Journal Entries</h2>
+
+<ul>
+  <% for entry in entries %>
+    <li>
+      <strong><%= entry["title"] %></strong> (Posted on: <%= entry["posted_on"] %>)
+      <p><%= entry["description"] %></p>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/places/<%= place["id"] %>/entries/new">Add a New Entry</a>
+<br>
+<a href="/places">Back to Places</a>
