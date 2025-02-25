@@ -20,3 +20,4 @@ class EntriesController < ApplicationController
   end
 end
   
+# extra line for commit
